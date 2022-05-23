@@ -1,0 +1,40 @@
+# codigo de la empresa de ventas de vehiculos 
+# codigo realizado en R markdown
+
+---
+title: "proyecto de ventas"
+author: "leonardo y yeraldi"
+date: '2022-05-23'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+*Modelo de regresion lineal simple*
+
+```{r}
+install.packages("readxl")
+install.packages("dplyr")
+library(readxl)
+library(dplyr)
+```
+```{r}
+excel_sheets("VentasRegion.xlsx")
+datos<-read_excel("VentasRegion.xlsx")
+```
+```{r}
+summary(datos)
+str (datos)
+```
+```{r}
+m1=lm(formula=VentasAnuales~PuntosDeVenta,data=datos)
+summary(m1)
+```
+```{r}
+plot(m1)
+```
+
+
+
